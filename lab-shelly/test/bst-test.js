@@ -50,3 +50,23 @@ describe('testing the appendChild method', function() {
     }).to.throw(err);
   });
 });
+
+describe('testing the min method', () => {
+  let testBST = new BSTNode(6);
+  testBST.appendChild(5);
+  testBST.appendChild(1);
+  let expectedMin = testBST.min();
+  it('should return the min value in bst', () => {
+    expect(expectedMin).to.equal(1);
+  });
+});
+
+describe('testing the max method', () => {
+  let testBST = new BSTNode(6);
+  testBST.appendChild(5);
+  testBST.appendChild(10);
+  let expectedMax = testBST.max();
+  it('should return the min value in bst', () => {
+    expect(expectedMax).to.equal(10);
+  });
+});
