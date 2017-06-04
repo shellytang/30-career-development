@@ -27,3 +27,32 @@ BSTNode.prototype.max = function() {
   }
   return current.value;
 };
+
+BSTNode.prototype.find = function(value) {
+  if(value === this.value) return;
+  if(value < this.value) {
+    if(!this.left) return null;
+    else return this.left.find(value);
+  } else if(value > this.value) {
+    if(!this.right) return null;
+    else return this.right.find(value);
+  }
+};
+
+BSTNode.prototype.appendChild = function(value) {
+  if(!this) return;
+  if(value === this.value) throw new Error('value must be unique');
+
+  if(value > this.value) {
+    if(!this.right) {
+      this.right = new BSTNode(value);
+      this.right.parent = this;
+    } else this.right.appendChild(value);
+  } else if(value < this.value) {
+    if(!this.left) {
+      this.left = new BSTNode(value);
+      this.left.parent = this;
+    } else this.left.appendChild(value);
+  }
+  return;
+};
