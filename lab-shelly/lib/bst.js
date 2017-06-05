@@ -59,10 +59,12 @@ BSTNode.prototype.find = function(value) {
 };
 
 // O(log n)
+//refactored http://www.geeksforgeeks.org/sorted-array-to-balanced-bst/
 BSTNode.fromArray = function(arr) {
-
   if(arr.length === 0) {
     throw new Error('array is empty');
+  } else if(arr[0] > ([arr.length - 1])) {
+    throw new Error('array must be sorted');
   } else return sortedArrToBST(arr, 0, arr.length - 1);
 
   function sortedArrToBST(arr, start, end) {

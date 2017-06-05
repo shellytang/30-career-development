@@ -100,6 +100,14 @@ describe('testing the sorted array to bst function', () => {
     });
   });
 
+  it('should throw an error if array is not sorted', () => {
+    let arr = [5,1,2];
+    let err = 'array must be sorted';
+    expect(function() {
+      BSTNode.fromArray(arr).to.throw(err);
+    });
+  });
+
   it('should create bst from items in the array', () => {
     let arr = [1,2,3,4,5];
     let bst = BSTNode.fromArray(arr);
