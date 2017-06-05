@@ -7,27 +7,9 @@ const BSTNode = module.exports = function(value) {
   this.right = null;
 };
 
-// BSTNode.fromArray = function(arr) {
-//
-//   let rootMid = Math.floor(arr.length/2);
-//   let root = new BSTNode(arr[rootMid]);
-//   // console.log('ROOT', root);
-//   console.log(root.left);
-//   let leftMid = Math.floor(rootMid/2);
-//   root.left = new BSTNode(arr[leftMid]);
-//
-//   let rightMid = Math.floor((arr.length + rootMid)/2);
-//   root.right = new BSTNode(arr[rightMid]);
-//   // console.log('rootright', root.right);
-// };
-
+//O(log n)
 BSTNode.prototype.appendChild = function(value) {
-
   if(!this) return;
-  if(value === this.value) {
-    throw new Error('value must be unique');
-  }
-
   if(value > this.value) {
     if(!this.right) {
       this.right = new BSTNode(value);
@@ -42,6 +24,7 @@ BSTNode.prototype.appendChild = function(value) {
   return;
 };
 
+//O(log n)
 BSTNode.prototype.min = function() {
   let current = this;
   if(!current) return;
@@ -49,10 +32,10 @@ BSTNode.prototype.min = function() {
   while(current.left) {
     current = current.left;
   }
-  // console.log(current.value);
   return current.value;
 };
 
+//O(log n)
 BSTNode.prototype.max = function() {
   let current = this;
   if(!current) return;
@@ -63,6 +46,7 @@ BSTNode.prototype.max = function() {
   return current.value;
 };
 
+//O(log n)
 BSTNode.prototype.find = function(value) {
   if(value === this.value) return this;
   if(value < this.value) {
@@ -71,5 +55,24 @@ BSTNode.prototype.find = function(value) {
   } else if(value > this.value) {
     if(!this.right) return null;
     else return this.right.find(value);
+  }
+};
+
+// O(log n)
+BSTNode.fromArray = function(arr) {
+
+  if(arr.length === 0) {
+    throw new Error('array is empty');
+  } else return sortedArrToBST(arr, 0, arr.length - 1);
+
+  function sortedArrToBST(arr, start, end) {
+    if(start > end) return null;
+
+    let middle = Math.floor((start + end)/2);
+    let bstNode = new BSTNode(arr[middle]);
+
+    bstNode.left = sortedArrToBST(arr, start, middle - 1);
+    bstNode.right = sortedArrToBST(arr, middle + 1, end);
+    return bstNode;
   }
 };

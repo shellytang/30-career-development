@@ -46,14 +46,6 @@ describe('testing the appendChild method', function() {
     expect(testBST.right.right.value).to.equal(17);
     expect(testBST.left.right.value).to.equal(5);
   });
-
-  it('should return an error if node is not unique value', function() {
-    let testBST = new BSTNode(15);
-    let err = 'value must be unique';
-    expect(function() {
-      testBST.appendChild(15);
-    }).to.throw(err);
-  });
 });
 
 describe('testing the min method', () => {
@@ -95,5 +87,28 @@ describe('testing the find method', () => {
   it('should return null if bst does not contain the value', () =>{
     let result = testBST.find(2);
     expect(result).to.equal(null);
+  });
+});
+
+describe('testing the sorted array to bst function', () => {
+
+  it('should throw an error if array is empty', () => {
+    let arr = [];
+    let err = 'array is empty';
+    expect(function() {
+      BSTNode.fromArray(arr).to.throw(err);
+    });
+  });
+
+  it('should create bst from items in the array', () => {
+    let arr = [1,2,3,4,5];
+    let bst = BSTNode.fromArray(arr);
+
+    expect(bst.value).to.equal(3);
+    expect(bst.left.value).to.equal(1);
+    expect(bst.left.right.value).to.equal(2);
+    expect(bst.right.value).to.equal(4);
+    expect(bst.right.right.value).to.equal(5);
+    expect(bst).to.be.an.instanceof(BSTNode);
   });
 });
