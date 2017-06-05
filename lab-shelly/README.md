@@ -25,18 +25,18 @@ This lab focuses on the data structure of a binary search tree. It includes the 
     * Be sure to include console.log to view the results.
     * Run `node index.js` in your command line.
   * Examples:
-  To use the BSTNode constructor and view the tree:
-    * Pass a value into the constructor `let bst = new BSTNode(6);`
-    * Include `console.log('bst', bst)` to view results
-    * Running `node index.js` in your command line should yield:
-    ```javascript
-    bst { value: 6, parent: null, left: null, right: null }
-    ```
-  To use the BSTNode.fromArray() and view the tree:
-    * Create a test array, e.g., `let arr = [1,2,3,4,5,6,7];`
-    * Create a bst, e.g., `const testBst = new BSTNode.fromArray(arr);`
-    * Include `console.log(testBst);` to view results
-    * Running `node index.js` in your command line should yield:
+    * To use the BSTNode constructor and view the tree:
+      * Pass a value into the constructor `let bst = new BSTNode(6);`
+      * Include `console.log('bst', bst)` to view results
+      * Running `node index.js` in your command line should yield:
+      ```javascript
+      bst { value: 6, parent: null, left: null, right: null }
+      ```
+    * To use the BSTNode.fromArray() and view the tree:
+      * Create a test array, e.g., `let arr = [1,2,3,4,5,6,7];`
+      * Create a bst, e.g., `const testBst = new BSTNode.fromArray(arr);`
+      * Include `console.log(testBst);` to view results
+      * Running `node index.js` in your command line should yield:
     ```javascript
     { value: 4,
   parent: null,
