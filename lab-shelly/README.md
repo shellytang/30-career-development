@@ -37,7 +37,7 @@ This lab focuses on the data structure of a binary search tree. It includes the 
       * Create a bst, e.g., `const testBst = new BSTNode.fromArray(arr);`
       * Include `console.log(testBst);` to view results
       * Running `node index.js` in your command line should yield:
-      ```javascript
+      ```
         { value: 4,
       parent: null,
       left:
