@@ -7,6 +7,7 @@ describe('testing the BSTNode construtor', function() {
   it('should create a new binary search tree', () => {
     let testBst = new BSTNode(4);
     expect(testBst).to.be.an('object');
+    expect(testBst).to.be.an.instanceof(BSTNode);
     expect(testBst).to.have.property('value');
     expect(testBst).to.have.property('parent');
     expect(testBst).to.have.property('left');
@@ -56,6 +57,7 @@ describe('testing the min method', () => {
   testBST.appendChild(5);
   testBST.appendChild(1);
   let expectedMin = testBST.min();
+
   it('should return the min value in bst', () => {
     expect(expectedMin).to.equal(1);
   });
@@ -66,7 +68,24 @@ describe('testing the max method', () => {
   testBST.appendChild(5);
   testBST.appendChild(10);
   let expectedMax = testBST.max();
+
   it('should return the min value in bst', () => {
     expect(expectedMax).to.equal(10);
+  });
+});
+
+describe('testing the find method', () => {
+  let testBST = new BSTNode(6);
+  testBST.appendChild(5);
+  let result = testBST.find(5);
+
+  it('should return the node that contains the value', () =>{
+    expect(result).to.be.an('object');
+    expect(result.value).to.equal(5);
+  });
+
+  it('should return null if bst does not contain the value', () =>{
+    let result = testBST.find(2);
+    expect(result).to.equal(null);
   });
 });

@@ -64,7 +64,8 @@ BSTNode.prototype.max = function() {
 };
 
 BSTNode.prototype.find = function(value) {
-  if(value === this.value) return;
+  // if(value !== this.value) return null;
+  if(value === this.value) return this;
   if(value < this.value) {
     if(!this.left) return null;
     else return this.left.find(value);
