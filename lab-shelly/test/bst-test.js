@@ -29,6 +29,10 @@ describe('testing the appendChild method', function() {
   it('should insert nodes to the binary search tree', () => {
     expect(testBST.left).to.not.be.empty;
     expect(testBST.right).to.not.be.empty;
+    expect(testBST.left).to.be.an.instanceof(BSTNode);
+    expect(testBST.right).to.be.an.instanceof(BSTNode);
+    expect(testBST.left).to.be.an('object');
+    expect(testBST.right).to.be.an('object');
   });
 
   it('nodes left of root/parent should be smaller than root/parent', () => {
@@ -60,17 +64,21 @@ describe('testing the min method', () => {
 
   it('should return the min value in bst', () => {
     expect(expectedMin).to.equal(1);
+    expect(expectedMin).to.equal(testBST.left.left.value);
+    expect(testBST.left.left.left).to.equal(null);
   });
 });
 
 describe('testing the max method', () => {
   let testBST = new BSTNode(6);
-  testBST.appendChild(5);
+  testBST.appendChild(9);
   testBST.appendChild(10);
   let expectedMax = testBST.max();
 
-  it('should return the min value in bst', () => {
+  it('should return the max value in bst', () => {
     expect(expectedMax).to.equal(10);
+    expect(expectedMax).to.equal(testBST.right.right.value);
+    expect(testBST.right.right.right).to.equal(null);
   });
 });
 

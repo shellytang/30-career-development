@@ -1,54 +1,35 @@
 ![cf](http://i.imgur.com/7v5ASc8.png) lab 30 - Binary Search Tree Data Structures
 ====
 
-## To Submit this Assignment
-  * fork this repository
-  * write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-duncan`
-  * push to your repository
-  * submit a pull request to this repository
-  * submit a link to your PR in canvas
-  * write a question and observation on canvas
+## Overview
+This lab focuses on the data structure of a binary search tree. It includes the following constructors and methods:
+  * `BSTNode` constructor creates a new BST
+  * `BSTNode.fromArray()` creates a BST from items in a sorted array
+  * `bst.appendChild()` appends a child to the bst
+  * `bst.min()` returns the min value in a bst
+  * `bst.max()` returns the max value in a bst
+  * `bst.find()` returns the node that contains the value, null otherwise
 
-## Requirements  
-#### Configuration  
-<!-- list of files, configurations, tools, etc that are required -->
-  Your lab directory must include   
-  * **README.md** -- with a documentation about your lab
-  * **.gitignore** -- with a robust .gitignore
-  * **.eslintrc** -- with the class .eslintrc file
-  * **.eslintignore** -- with the class .eslintignore
-  * **.package.json** -- with all dependencies and dev-dependencies
-  * **lib/** -- directory for holding your programs helper modules
-  * **test/** -- directory for holding your programs unit and integration tests
+# Installation
+  * You will need to install Node.js
+  * Clone this repository
+  * Run `npm i` in your command line to install the following developer dependencies (for testing) listed in the package.json:
+    * chai: 4.0.0
+    * mocha: 3.4.2
 
-#### Testing  
-  * write at least three test assertions for each constructor method
-  * organize your tests into appropriate describe/it blocks for test output readability
-
-####  Documentation  
-  * in your README, write documentation for you data structures
-  * your documentation should includes code block usage examples
-  * provide instructions for:
-    * installing and using your data structure
-    * accessing each method
-    * running your tests
-
-#### Feature Tasks  
-* implement a `BSTNode` constructor
-* implement the following static methods
-  * `BSTNode.fromArray()` should create BST from items in an array
-* implement the following prototype methods
-  * `node.appendChild(node)` should append a child to the bst
-  * `node.min()` should return the min value in a bst
-  * `node.max()` should return the min value in a bst
-  * `node.find()` should return the node that contains the value, null otherwise
-
-## Bonus Points:
-  * 2pts
-  * write a `node.balance()` that will balance the tree
-
-#### Rubric:
-  * Tests: 2pts
-  * Passes linter: 1pts
-  * Completed Data Structure: 5pts
-  * Big-O notation: 2pts
+# Using the data structure
+  * You can view the helper modules by accessing the `lib` directory
+  * You can view the tests by accessing the `test` directory
+  * To use the data structure:
+    * In `index.js ` pass in or create the appropriate parameters for the constructor and methods listed in the file.
+    * Be sure to include console.log to view the results.
+    * Run `node index.js` in your command line.
+  * For example, to use the BSTNode constructor and view the tree:
+    * Pass a value into the constructor - `let bst = new BSTNode(6);`
+    * Include `console.log('bst', bst)` to view results
+    * Running `node index.js` in your command line should yield:
+    ```javascript
+    bst { value: 6, parent: null, left: null, right: null }
+    ```
+# Testing  
+To run tests, run `npm test` in your command line.

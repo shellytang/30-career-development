@@ -2,6 +2,9 @@
 
 const BSTNode = require('./lib/bst');
 
-let bst = new BSTNode(6);
+let bst = new BSTNode();
 
-bst.appendChild(5);
+bst.appendChild();
+bst.min();
+bst.max();
+bst.find();
